@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>Analysis for u/{{ user }}</h1>
+    <h2>Sentiment</h2>
+    <pre>{{ sentiment | tojson(indent=2) }}</pre>
+    <h2>Top Keywords</h2>
+    <ul>
+      {% for kw in keywords %}
+      <li>{{ kw }}</li>
+      {% endfor %}
+    </ul>
+    <a href="/">Analyze another user</a>
+  </body>
+</html>
