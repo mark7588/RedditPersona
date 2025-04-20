@@ -10,11 +10,12 @@ def init_reddit():
     )
     return reddit  # Quick Start with PRAW :contentReference[oaicite:12]{index=12}
 
-def fetch_user_data(username, limit=50):
+def fetch_user_data(username, limit=100):
     """Retrieve submissions and comments for a given Reddit user."""
     reddit = init_reddit()
     user = reddit.redditor(username)
     posts = list(user.submissions.new(limit=limit))
     comments = list(user.comments.new(limit=limit))
+   
     
-    return posts, comments  # Example pattern for user.posts/comments :contentReference[oaicite:13]{index=13}
+    return user, posts, comments

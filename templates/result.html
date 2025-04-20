@@ -1,9 +1,19 @@
 <!doctype html>
 <html>
   <body>
-    <h1>Analysis for u/{{ user }}</h1>
-    <h2>Sentiment</h2>
-    <pre>{{ sentiment | tojson(indent=2) }}</pre>
+    <h1>Overview for u/{{ user }}</h1>
+    <p>
+
+      <strong>Username:</strong> {{ user }}<br>
+      <strong>Number of Comments:</strong> {{comments_count}} <br>
+      <strong>Number of Posts:</strong> {{posts_count}} <br>
+      <strong>KARMA/COMMENT</strong> {{user.comment_karma}} <br>
+      <strong>KARMA/SUBMISSION</strong> {{user.link_karma}} <br>
+      <strong>Account Age:</strong> {{ user.created_utc }} days<br>
+
+    </p>
+    <h1>Sentimental Analysis for u/{{ username }}</h1>
+    <body>The target user tends to be {{user_polarity}} and {{user_subjectivity}} about the world...</body>
     <h2>Top Keywords</h2>
     <ul>
       {% for kw in keywords %}
