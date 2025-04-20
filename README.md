@@ -39,8 +39,10 @@ This is useful for:
    - Sentiment scores (positive, neutral, negative)
    - Common keywords used
    - Account metadata and profile info
-  
-## How to run application in local 
+
+---
+
+## 💡 How to run application in local 
 1. Download source code in your local
 2. Create virtual environment
 3. Download required libraries using pip install requirements.txt
