@@ -1,25 +1,25 @@
 <!doctype html>
 <html>
   <body>
-    <h1>Overview for u/{{ user }}</h1>
+    <h2>Overview for u/{{ user }}</h2>
     <p>
-
-      <strong>Username:</strong> {{ user }}<br>
-      <strong>Number of Comments:</strong> {{comments_count}} <br>
-      <strong>Number of Posts:</strong> {{posts_count}} <br>
-      <strong>KARMA/COMMENT</strong> {{user.comment_karma}} <br>
-      <strong>KARMA/SUBMISSION</strong> {{user.link_karma}} <br>
-      <strong>Account Age:</strong> {{ user.created_utc }} days<br>
-
+      Username: {{ user }}<br>
+      Number of Comments: {{comments_count}} <br>
+      Number of Posts: {{posts_count}} <br>
+      Karma / Comment: {{user_comment_karma}} <br>
+      Karma / Submission: {{user_link_karma}} <br>
+      Account Age: {{ user_age_years }} years<br>
     </p>
-    <h1>Sentimental Analysis for u/{{ username }}</h1>
-    <body>The target user tends to be {{user_polarity}} and {{user_subjectivity}} about the world...</body>
     <h2>Top Keywords</h2>
     <ul>
       {% for kw in keywords %}
       <li>{{ kw }}</li>
       {% endfor %}
     </ul>
-    <a href="/">Analyze another user</a>
+    <h2>Reddit Persona for u/{{ username }}</h2>
+    <body>The character type of the target user is <strong>{{user_character_type}}</strong>...</body><br>
+    <body>The anime character for the target user is <strong>{{user_anime_character}}</strong></body>
+    <br>
+    <h2><a href="/">Analyze another user</a></h2>
   </body>
 </html>

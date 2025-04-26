@@ -2,7 +2,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
 from rake_nltk import Rake
 
-# Initialize Sentimental Analysis library 
+
 vader_analyzer = SentimentIntensityAnalyzer()  # VADER initialization :contentReference[oaicite:14]{index=14}
 
 rake = Rake()  
@@ -29,9 +29,25 @@ def analyze_sentiment(text):
     else:
         user_subjectivity = "subjective"
 
-    return user_polarity, user_subjectivity 
+    return user_polarity, user_subjectivity
+
+def get_characteristic_type_and_character(polarity, subjectivity):
+    characteristics = {
+        ('positive', 'objective'): ("The Idealistic Strategist", "Armin Arlert (Attack on Titan)"),
+        ('positive', 'mixed'): ("The Hopeful Dreamer", "Naruto Uzumaki (Naruto)"),
+        ('positive', 'subjective'): ("The Purehearted Idealist", "Tohru Honda (Fruits Basket)"),
+        ('neutral', 'objective'): ("The Detached Analyst", "Saber (Fate/Stay Night)"),
+        ('neutral', 'mixed'): ("The Reserved Mediator", "Ginko (Mushishi)"),
+        ('neutral', 'subjective'): ("The Stoic Empath", "Violet Evergarden"),
+        ('negative', 'objective'): ("The Cynical Realist", "Light Yagami (Death Note)"),
+        ('negative', 'mixed'): ("The Tormented Rebel", "Eren Yeager (Attack on Titan)"),
+        ('negative', 'subjective'): ("The Broken Idealist", "Homura Akemi (Madoka Magica)")
+    }
+    key = (polarity.lower(), subjectivity.lower())
+    return characteristics.get(key, ("Unknown Type", "Unknown Character"))
 
 def extract_keywords(text, num_phrases=10):
     """Return top keyword phrases using RAKE."""
     rake.extract_keywords_from_text(text)
     return rake.get_ranked_phrases()[:num_phrases]  # RAKE get_ranked_phrases :contentReference[oaicite:17]{index=17}
+
