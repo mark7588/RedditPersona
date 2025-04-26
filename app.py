@@ -29,7 +29,8 @@ def index():
 
 
         return render_template('result.html', comments_count = comments_count, posts_count = posts_count, 
-        user = user, username = username, user_comment_karma = user_comment_karma, user_link_karma = user_link_karma, user_age_years = user_age_years, user_character_type = user_character_type, user_anime_character = user_anime_character, keywords = keywords)
+        user = user, username = username, user_comment_karma = user_comment_karma, user_link_karma = user_link_karma, user_age_years = user_age_years, user_polarity = user_polarity, user_subjectivity = user_subjectivity,
+         user_character_type = user_character_type, user_anime_character = user_anime_character, keywords = keywords)
     return render_template('index.html')  
 
 if __name__ == '__main__':

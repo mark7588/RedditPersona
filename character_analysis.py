@@ -4,7 +4,7 @@ from rake_nltk import Rake
 
 
 vader_analyzer = SentimentIntensityAnalyzer()  # VADER initialization :contentReference[oaicite:14]{index=14}
-
+# Libary used for keyword extraction
 rake = Rake()  
 
 def analyze_sentiment(text):
@@ -46,8 +46,7 @@ def get_characteristic_type_and_character(polarity, subjectivity):
     key = (polarity.lower(), subjectivity.lower())
     return characteristics.get(key, ("Unknown Type", "Unknown Character"))
 
-def extract_keywords(text, num_phrases=10):
-    """Return top keyword phrases using RAKE."""
+def extract_keywords(text, num_phrases=30):
     rake.extract_keywords_from_text(text)
-    return rake.get_ranked_phrases()[:num_phrases]  # RAKE get_ranked_phrases :contentReference[oaicite:17]{index=17}
+    return rake.get_ranked_phrases()[:num_phrases]  
 
