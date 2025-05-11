@@ -22,7 +22,7 @@ def analyze_sentiment(text):
     tb = TextBlob(text)
     subjectivity_value = tb.sentiment.subjectivity
 
-    if subjectivity_value< 0.3:
+    if subjectivity_value < 0.3:
         user_subjectivity = "objective"
     elif 0.3 <= subjectivity_value < 0.7:
         user_subjectivity = "mixed"
