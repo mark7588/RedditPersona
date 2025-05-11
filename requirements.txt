@@ -4,3 +4,5 @@ nltk              # NLP toolkit (VADER stopwords)
 vaderSentiment    # VADER sentiment analyzer
 textblob          # TextBlob sentiment analysis
 rake-nltk         # RAKE keyword extraction
+pandas
+matplotlib

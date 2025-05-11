@@ -1,27 +1,47 @@
 <!doctype html>
 <html>
   <body>
-    <h2>Overview for u/{{ user }}</h2>
-    <p>
-      Username: {{ user }}<br>
-      Number of Comments: {{comments_count}} <br>
-      Number of Posts: {{posts_count}} <br>
-      Karma / Comment: {{user_comment_karma}} <br>
-      Karma / Submission: {{user_link_karma}} <br>
-      Account Age: {{ user_age_years }} years<br>
-    </p>
-    <h2>Top Keywords</h2>
-    <ul>
-      {% for kw in keywords %}
-      <li>{{ kw }}</li>
-      {% endfor %}
-    </ul>
-    <h2>Reddit Persona for u/{{ username }}</h2>
-    <p>User Polarity: {{user_polarity}}</p><br>
-    <p>User Subjectivity: {{user_subjectivity}}</p>
-    <body>The character type of the target user is <strong>{{user_character_type}}</strong>...</body><br>
-    <body>The anime character for the target user is <strong>{{user_anime_character}}</strong></body>
-    <br>
-    <h2><a href="/">Analyze another user</a></h2>
+    <!-- User Overview Section -->
+    <section>
+      <h2>Overview for u/{{ user }}</h2>
+      <p>
+        <strong>Username:</strong> {{ user }}<br>
+        <strong>Number of Comments:</strong> {{comments_count}}<br>
+        <strong>Number of Posts:</strong> {{posts_count}}<br>
+        <strong>Karma / Comment:</strong> {{user_comment_karma}}<br>
+        <strong>Karma / Submission:</strong> {{user_link_karma}}<br>
+        <strong>Account Age:</strong> {{ user_age_years }} years<br>
+      </p>
+    </section>
+
+    <!-- Top Keywords Section -->
+    <section>
+      <h2>Top Keywords</h2>
+      <ul>
+        {% for kw in keywords %}
+        <li>{{ kw }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Sentiment Analysis Section -->
+    <section>
+      <h2>Changes in Polarity Over Time</h2>
+      <img src="{{ url_for('static', filename='sentiment_plot.png') }}" alt="Sentiment Plot">
+    </section>
+
+    <!-- Reddit Persona Section -->
+    <section>
+      <h2>Reddit Persona for u/{{ username }}</h2>
+      <p><strong>User Polarity:</strong> {{user_polarity}}</p>
+      <p><strong>User Subjectivity:</strong> {{user_subjectivity}}</p>
+      <p>The character type of the target user is <strong>{{user_character_type}}</strong>.</p>
+      <p>The anime character for the target user is <strong>{{user_anime_character}}</strong>.</p>
+    </section>
+
+    <!-- Navigation Section -->
+    <section>
+      <h2><a href="/">Analyze another user</a></h2>
+    </section>
   </body>
 </html>
